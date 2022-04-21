@@ -3,8 +3,6 @@ import { useRouter } from 'next/dist/client/router'
 
 const newsid = () => {
   const router = useRouter()
-  console.log(router.pathname)
-  console.log(router.query)
 
   return (
     <React.Fragment>
