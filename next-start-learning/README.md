@@ -36,7 +36,7 @@ $ sudo systemctl enable docker
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
 $ sudo chmod +x /usr/bin/docker-compose
 $ docker-compose version
-# 测试 docker 
+# 测试 docker
 # $ exit # 退出再login
 $ docker run -it --rm busybox
 > / # ls
@@ -53,6 +53,7 @@ FROM node:14-alpine
 
 WORKDIR /usr/src/app
 
+# 將當前目錄的文件複製到容器裡的 . 路徑下
 COPY . .
 
 RUN npm install
@@ -65,7 +66,7 @@ CMD [ "npm", "start" ]
 ### 编写 docker-compose.yml
 
 ```yml
-version: '3' 
+version: '3'
 
 services:
   nextweb:
