@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function frameworksGithubStarts(props) {
+export default function FrameworksGithubStarts(props) {
   const { datalist } = props
   return (
     <div>
@@ -12,11 +12,11 @@ export default function frameworksGithubStarts(props) {
 
       <div>
         <ul>
-          {
-            datalist.map(ele => (
-              <li key={ele.name}>{ele.name} starts: {ele.stars}</li>
-            ))
-          }
+          {datalist.map((ele) => (
+            <li key={ele.name}>
+              {ele.name} starts: {ele.stars}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
@@ -25,12 +25,11 @@ export default function frameworksGithubStarts(props) {
 
 // getStaticProps 在服務器端會執行，在編譯(build)時也會執行
 export async function getStaticProps(context) {
-  console.log('frameworksGithubStarts getStaticProps is running...');
+  console.log('frameworksGithubStarts getStaticProps is running...')
 
   let res = await fetch('https://api.github.com/repos/facebook/react')
   let json = await res.json()
   let starts_react = json.stargazers_count
-  console.log(starts_react);
 
   res = await fetch('https://api.github.com/repos/vuejs/vue')
   json = await res.json()
@@ -45,8 +44,8 @@ export async function getStaticProps(context) {
       datalist: [
         { name: 'React', stars: starts_react },
         { name: 'Vue', stars: starts_vue },
-        { name: 'Angular', stars: starts_angular }
-      ]
-    }
+        { name: 'Angular', stars: starts_angular },
+      ],
+    },
   }
 }
