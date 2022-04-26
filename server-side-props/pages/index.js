@@ -2,6 +2,8 @@ import { useContext, useState } from 'react'
 import { useRouter } from 'next/dist/client/router'
 import MyWebContext from '../store'
 
+console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
+
 export default function Home(props) {
   const router = useRouter()
   const myWebCxt = useContext(MyWebContext)
@@ -33,6 +35,12 @@ export default function Home(props) {
           />
         </div>
         <button onClick={btn_login_onclick}>登入</button>
+        <hr />
+        <h2>環境變量</h2>
+        <div>{process.env.sitename}</div>
+        <div>{process.env.dbUrl}</div>
+        <div>{process.env.dbUsername}</div>
+        <div>{process.env.dbPassword}</div>
       </div>
     </div>
   )
