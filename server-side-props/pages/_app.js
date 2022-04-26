@@ -1,7 +1,10 @@
-import '../styles/globals.css'
+import { MyWebContextProvider } from '../store'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <MyWebContextProvider>
+      <Component {...pageProps} />
+    </MyWebContextProvider>
+  )
 }
-
 export default MyApp
